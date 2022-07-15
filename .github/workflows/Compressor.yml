@@ -18,18 +18,18 @@ jobs:
            git config --global user.name ${{ secrets.GitHubName }}
            git config --global user.email ${{ secrets.GitHubMail }}
            git config --global credential.helper store
-           echo "https://imacekun:${{ secrets.GH_TOKEN }}@github.com" > ~/.git-credentials
+           echo "https://guttusa:${{ secrets.GH_TOKEN }}@github.com" > ~/.git-credentials
            
        
        - name: cloning repo
          continue-on-error: true
          run: |
-           git clone -b main https://imacekun:${{ secrets.GH_TOKEN }}@github.com/imacekun/PyroNoob.git
+           git clone -b main https://gittusa:${{ secrets.GH_TOKEN }}@github.com/gittusa/tittu.git
        - name: Running PrivateEncoderV2.0 Bot 
          timeout-minutes: 350
          continue-on-error: true
          run: |
-           cd PyroNoob
+           cd tittu
            docker build -t dockerfiles . && docker run dockerfiles
            
        - name: Loop workflow
@@ -40,4 +40,4 @@ jobs:
            echo $(( RANDOM - ( RANDOM % RANDOM ) )) > looper.txt
            git add looper.txt
            git commit -m "Workflow : Loop at $(date -u +%D-%T%P)"
-           git push -q https://${{ secrets.GH_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:main
+           git push -q https://${{ secrets.GH_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:master
