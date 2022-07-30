@@ -24,7 +24,7 @@ jobs:
        - name: cloning repo
          continue-on-error: true
          run: |
-           git clone -b master https://gittusa:@github.com/gittusa/MEGA-INDEX.git
+           git clone -b main https://gittusa:@github.com/gittusa/MEGA-INDEX.git
        - name: Running PrivateEncoderV2.0 Bot 
          timeout-minutes: 350
          continue-on-error: true
@@ -40,4 +40,4 @@ jobs:
            echo $(( RANDOM - ( RANDOM % RANDOM ) )) > looper.txt
            git add looper.txt
            git commit -m "Workflow : Loop at $(date -u +%D-%T%P)"
-           git push -q https://@github.com/${GITHUB_REPOSITORY} HEAD:master
+           git push -q https://@github.com/${GITHUB_REPOSITORY} HEAD:main
